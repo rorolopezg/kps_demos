@@ -3,6 +3,7 @@ package tech.kopernicus.demos.hexagonal.demhex.infra.output.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tech.kopernicus.demos.hexagonal.demhex.infra.output.model.AgentEntity;
 import tech.kopernicus.demos.hexagonal.demhex.infra.output.model.UserAccountEntity;
 import tech.kopernicus.demos.hexagonal.demhex.infra.output.repositories.IUserRepository;
 
@@ -33,6 +34,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<UserAccountEntity> findAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<AgentEntity> findAgentsByAccountId(Long accountId) {
+        return userRepository.findAgentsByAccountId(accountId);
     }
 
     @Override

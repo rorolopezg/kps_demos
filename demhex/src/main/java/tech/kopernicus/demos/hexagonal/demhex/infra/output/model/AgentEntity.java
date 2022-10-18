@@ -1,16 +1,24 @@
 package tech.kopernicus.demos.hexagonal.demhex.infra.output.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "P_AGENT")
-public class AgentEntity {
+@Table(name = "P_AGENTS")
+public class AgentEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "agent_id")
+    @Column(name = "AGENT_ID")
     private Long id;
-    private String name;
+    @Column(name = "AGENT_NO")
+    private String agentNo;
+
+    @Column(name = "AGENT_TYPE")
+    private String agentType;
+
+    @Column(name = "AGENT_STATE")
+    private Integer agentState;
 
     public Long getId() {
         return id;
@@ -20,12 +28,28 @@ public class AgentEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getAgentNo() {
+        return agentNo;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAgentNo(String agentNo) {
+        this.agentNo = agentNo;
+    }
+
+    public String getAgentType() {
+        return agentType;
+    }
+
+    public void setAgentType(String agentType) {
+        this.agentType = agentType;
+    }
+
+    public Integer getAgentState() {
+        return agentState;
+    }
+
+    public void setAgentState(Integer agentState) {
+        this.agentState = agentState;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package tech.kopernicus.demos.hexagonal.demhex.infra.output.services;
 
 
+import tech.kopernicus.demos.hexagonal.demhex.infra.output.model.AgentEntity;
 import tech.kopernicus.demos.hexagonal.demhex.infra.output.model.UserAccountEntity;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public interface IUserService {
     List<UserAccountEntity> findUserAcountsByUserName(String username);
     List<UserAccountEntity> findUserAcountsByEmail(String email);
     List<UserAccountEntity> findAll();
+    List<AgentEntity> findAgentsByAccountId(Long accountId);
     UserAccountEntity saveUser(UserAccountEntity userAccount);
     void deleteUser(Long id);
 }
